@@ -1,0 +1,7 @@
+chooseTemplateIconHome  454x429
+chooseTemplateIconMine  806x886
+chooseTemplateShow  685x385
+chooseTemplateShowImage  677x380
+chooseTemplateBotton1  161x46
+chooseTemplateBotton2  36x41
+chooseTemplateBotton3  36x41

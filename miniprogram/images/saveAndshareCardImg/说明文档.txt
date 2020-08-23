@@ -1,0 +1,6 @@
+saveAndshareCardIconHome  454x429
+saveAndshareCardIconMine  806x886
+saveAndshareCardShow  685x385
+saveAndshareCardShowImage  677x377
+saveAndshareCardTapbar1  155x181
+saveAndshareCardTapbar2  122x185

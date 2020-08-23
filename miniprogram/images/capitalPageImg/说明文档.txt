@@ -1,0 +1,5 @@
+capitalPageBack 750x1194
+capitalPageBotton1  122x581
+capitalPageBotton2  125x464
+capitalPageIconHome  454x429
+capitalPageIconMine  806x886

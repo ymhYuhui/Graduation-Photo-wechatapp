@@ -1,0 +1,6 @@
+saveAndsharePhotoIconHome  454x429
+saveAndsharePhotoIconMine  806x886
+saveAndsharePhotoShow  685x385
+saveAndsharePhotoShowImage  677x380
+saveAndsharePhotoTapbar1  155x181
+saveAndsharePhotoTapbar2  122x185
