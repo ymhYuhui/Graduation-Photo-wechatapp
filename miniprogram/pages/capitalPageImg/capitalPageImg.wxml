@@ -1,2 +1,8 @@
-<!--miniprogram/pages/capitalPageImg/capitalPageImg.wxml-->
-<text>miniprogram/pages/capitalPageImg/capitalPageImg.wxml</text>
+<!--李铭鑫   2020.8.27-->
+<view class="tex-container"><image class='background' src="../../images/capitalPageImg/capitalPageBack.png"></image>
+<view class="capital-container">
+<image class="img-graduation" mode="widthFix" bindtap="toPhotoMake" src="../../images/capitalPageImg/capitalPageBotton1.png"></image>
+<image class="img-card" mode="widthFix" bindtap="toCardMake" src="../../images/capitalPageImg/capitalPageBotton2.png"></image>
+</view>
+
+</view>
