@@ -1,66 +1,24 @@
-// miniprogram/pages/animationLoadingImg/animationLoadingImg.js
+/* 2020.8.30 王慧娟 */
+const Luck = require("../../utils/luck.js");
+//const uilt = require('../../utils/util.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    width: 250,
+    height: 250,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad() {
+    const that = this
+    let options = {
+      canvasid: 'luck',
+      width: that.data.width, //canvas宽
+      height: that.data.height, //canvas高
+      maskColor: '#FFFFFF', //遮罩的颜色
+      size: 10, //清除轨迹的宽度
+      scale: 0.75, //可以理解为手动清除面积上限，范围0~1
+    }
+    that.luck = new Luck(that, options);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

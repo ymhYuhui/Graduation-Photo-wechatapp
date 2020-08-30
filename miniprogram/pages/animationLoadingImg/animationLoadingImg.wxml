@@ -1,2 +1,26 @@
-<!--miniprogram/pages/animationLoadingImg/animationLoadingImg.wxml-->
-<text>动画页</text>
+
+<!-- 2020.8.30 王慧娟 -->
+<!-- 刮刮出的校徽路径（连接） -->
+<canvas class="photo" canvas-id="luck" style=" width: {{width}}px;height: {{height}}px;background: url('http://m.qpic.cn/psc?/V13ybyhR1jUwBG/cTSKLfDpG3rewGH76tPscUAKZlXMdMl62u5GbmPM0GcCEPW9RSWYq4biVQJ2sqEttaQJ61KRsNoKmrZbEEN.aA!!/mnull&bo=HwIfAh8CHwIDCSw!&rf=photolist&t=5') no-repeat center center" bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" data-id="luck"></canvas>
+<!-- 文字图片路径 -->
+<view class='word'>
+  <image src="/images/animationLoadingImg/animationLoadingText.png" class='in-image'   >
+  </image>
+</view>
+<!-- 底部蓝色云路径 -->
+<view class='cloud'>
+  <image src="/images/animationLoadingImg/animationLoadingBack.png" class='in-image'   >
+  </image>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
