@@ -1,8 +1,8 @@
 <!--李铭鑫   2020.8.27-->
-<view class="tex-container"><image class='background' src="../../images/capitalPageImg/capitalPageBack.png"></image>
+<view class="tex-container"><image class='background' src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/capitalPageImg/capitalPageBack.png"></image>
 <view class="capital-container">
-<image class="img-graduation" mode="widthFix" bindtap="toPhotoMake" src="../../images/capitalPageImg/capitalPageBotton1.png"></image>
-<image class="img-card" mode="widthFix" bindtap="toCardMake" src="../../images/capitalPageImg/capitalPageBotton2.png"></image>
+<image class="img-graduation" mode="widthFix" bindtap="toPhotoMake" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/capitalPageImg/capitalPageBotton1.png"></image>
+<image class="img-card" mode="widthFix" bindtap="toCardMake" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/capitalPageImg/capitalPageBotton2.png"></image>
 </view>
 
 </view>

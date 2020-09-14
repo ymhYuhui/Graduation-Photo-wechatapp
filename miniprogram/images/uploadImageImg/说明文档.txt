@@ -1,7 +1,0 @@
-uploadImageButton 156x46
-uploadImageIconHome  454x429
-uploadImageIconMine  806x886
-uploadImageShow  685x385
-uploadImageShowImage  677x380
-uploadImageTapbar1  180x228
-uploadImageTapbar2  188x203

@@ -4,11 +4,11 @@ var app = getApp()
 Page({
   data: {
     imgUrls: [
-      "/images/choosePaperImg/choosePaperChooseImage1.png",
-      "/images/choosePaperImg/choosePaperChooseImage2.png",
-      "/images/choosePaperImg/choosePaperChooseImage1.png",
+      "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/choosePaperImg/choosePaperChooseImage1.png",
+      "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/choosePaperImg/choosePaperChooseImage2.png",
+      "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/choosePaperImg/choosePaperChooseImage1.png",
 
-    
+
 
 
     ],
@@ -18,7 +18,7 @@ Page({
     flag: true
   },
 
-  toLeft: function (e) {
+  toLeft: function(e) {
     console.log(this.data.flag)
     if (!this.data.flag) { // 如果动画还未完成，不执行
       return
@@ -39,9 +39,9 @@ Page({
       }
     }
   },
-  toRight: function (e) {
+  toRight: function(e) {
     console.log(this.data.flag)
-    if (!this.data.flag) { 
+    if (!this.data.flag) {
       // 如果动画还未完成，不执行
       return
     } else {
@@ -61,24 +61,24 @@ Page({
       }
     }
   },
-  changeIndex: function (e) { // 切换过程绑定
+  changeIndex: function(e) { // 切换过程绑定
     this.setData({
       index: e.detail.current
     })
   },
-  changeFinish: function (e) { // 动画完全完成
+  changeFinish: function(e) { // 动画完全完成
     // 修改按钮切换可用状态
     this.setData({
       flag: true
     })
   },
-  toEdit: function (opotions) {
+  toEdit: function(opotions) {
     wx.navigateTo({
       url: '../editTextImg/editTextImg'
     })
   },
 
-  onSwipertap: function (e) {
+  onSwipertap: function(e) {
     console.log(e.detail.current)
   },
 

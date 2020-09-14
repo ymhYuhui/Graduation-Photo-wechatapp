@@ -1,3 +1,0 @@
-animationLoadingBack  750x398
-animationLoadingLogo  391x391
-animationLoadingText  643x147

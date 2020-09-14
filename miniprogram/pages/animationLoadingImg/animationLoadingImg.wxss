@@ -1,35 +1,38 @@
 /* 2020.8.30 王慧娟 */
+
 canvas {
   margin: auto;
-
 }
 
-.word{
-  display:flex;                
-  justify-content: center;        
-  align-items:center;          
- }
- .word image { 
-   width:643rpx;
-   height:147rpx;
-   }
-.cloud{
-    display:flex;                
-    justify-content: center;        
-    align-items:center;  
-    vertical-align: bottom;   
-   }
-.cloud image { 
-     width:750rpx;
-     height:398rpx;
-     }
+.word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-   .photo{
-     margin-top: 200rpx;
-   }
+.word image {
+  width: 643rpx;
+  height: 147rpx;
+}
 
-   .line{
-    width: 70%;
+.cloud {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: bottom;
+}
+
+.cloud image {
+  width: 750rpx;
+  height: 398rpx;
+}
+
+.photo {
+  margin-top: 200rpx;
+}
+
+.line {
+  width: 70%;
   height: 23%;
   position: fixed;
   top: 10%;
@@ -37,20 +40,20 @@ canvas {
   z-index: 1;
   opacity: 1;
   overflow: hidden;
-   }
+}
 
-   .hand{
-    width: 50rpx;
-    height: 50rpx;
-    z-index: 2;
-    overflow: hidden;
-    position: fixed;
-    top: 35%;
-    left: 80rpx;  
-    font-size: 32rpx; 
-    border-radius: 10rpx; 
-   }
+.hand {
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 2;
+  overflow: hidden;
+  position: fixed;
+  top: 35%;
+  left: 80rpx;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+}
 
-page{
-  background-color: #ffffff;
+page {
+  background-color: #fff;
 }

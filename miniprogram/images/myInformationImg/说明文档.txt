@@ -1,4 +1,0 @@
-myInformationIconHome  454x429
-myInformationIconMine  806x886
-myInformationLine  750x5
-myInformationRectangle  271x152

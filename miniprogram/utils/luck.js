@@ -69,7 +69,7 @@ class Luck {
        setTimeout(function(){  
               wx.redirectTo({
                 url: '/pages/capitalPageImg/capitalPageImg', //跳转页面路径
-              })},2000);
+              })},0);
     }
 
     ctx.save();
