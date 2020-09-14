@@ -1,4 +1,6 @@
 <!--miniprogram/pages/choosePaperImg/choosePaperImg.wxml-->
+<!-- 20200914，李铭鑫 -->
+
 <view class="paper-container">
 <image class="img-card" mode="widthFix" src="{{imgUrls[index]}}"></image>
 <image class="img-butn" mode="widthFix" src="/images/choosePaperImg/choosePaperBotton1.png" bindtap="toEdit"></image>

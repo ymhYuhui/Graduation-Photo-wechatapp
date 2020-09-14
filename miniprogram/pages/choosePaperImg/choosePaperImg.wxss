@@ -1,5 +1,5 @@
 /* miniprogram/pages/choosePaperImg/choosePaperImg.wxss */
-/*******李铭鑫   ***********/
+/* 20200914，李铭鑫 */
 .paper-container {
   display: flex;
   flex-direction: column;
