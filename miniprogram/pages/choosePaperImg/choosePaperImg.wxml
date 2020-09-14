@@ -1,2 +1,23 @@
 <!--miniprogram/pages/choosePaperImg/choosePaperImg.wxml-->
-<text>miniprogram/pages/choosePaperImg/choosePaperImg.wxml</text>
+<view class="paper-container">
+<image class="img-card" mode="widthFix" src="{{imgUrls[index]}}"></image>
+<image class="img-butn" mode="widthFix" src="/images/choosePaperImg/choosePaperBotton1.png" bindtap="toEdit"></image>
+<view class="bottom-container">
+<image class="img-left" mode="widthFix" src="/images/choosePaperImg/choosePaperBotton2.png" bindtap="toLeft"></image>
+  <view class="header">
+    <swiper circular="true" current="{{currentIndex}}" duration="1000" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+          <image src="{{item}}" mode="scaleToFill" class="slide-image" bindtap="onSwipertap"/> 
+      </swiper-item>
+    </block>
+      
+    </swiper>
+  </view>
+  <image class="img-right" mode="widthFix" src="/images/choosePaperImg/choosePaperBotton3.png" bindtap="toRight"></image>
+
+
+</view>
+
+
+</view>
