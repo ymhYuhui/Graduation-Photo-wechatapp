@@ -1,1 +1,61 @@
-/* miniprogram/pages/chooseTemplateImg/chooseTemplateImg.wxss */
+.paper-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-card {
+  
+  width: 85%;
+  border: 3px solid #164da0;
+  margin-top: 80rpx;  
+
+}
+.img-butn {
+  width: 100px;
+  margin-top: 100rpx;
+}
+.img-left {
+  width: 20px;
+  margin-right: 50rpx;
+  margin-top: -40rpx;
+}
+.img-right {
+  width: 20px;
+  margin-left: 50rpx;
+  margin-top: -40rpx;
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 100rpx;
+  width: 90%;
+}
+swiper {
+  height: 400rpx;
+
+}
+.slide-image {
+  width: 100%;
+  height: 350rpx;
+}
+
+.header {
+  width: 100%;  
+  height: 100%;
+  position: relative;
+  margin-left: -30rpx;
+  margin-right: -30rpx;
+}
+
+.wx-swiper-dots {
+  position: relative;
+}
+
+.wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: -10rpx;
+}
+
+

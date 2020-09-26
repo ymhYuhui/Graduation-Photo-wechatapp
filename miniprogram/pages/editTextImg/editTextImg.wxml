@@ -1,2 +1,48 @@
-<!--miniprogram/pages/editTextImg/editTextImg.wxml-->
-<text>miniprogram/pages/editTextImg/editTextImg.wxml</text>
+<view class="paper-container">
+   <!-- 隐藏canvas 保存图片用 -->
+   <!-- 禁止屏幕滚动以及下拉刷新；canvas长宽为0；使用绝对定位隐藏在界面之外（left:-9999px） -->
+   <canvas canvas-id="tempCanvas" disable-scroll="true" style="width:{{tempCanvasWidth}}px; height:{{tempCanvasHeight}}px; position:absolute;left:-999999px"></canvas>
+
+  
+    <image src="{{isCombine?tempImageSrc:tempImageUrl}}" class="img-card "  mode="widthFix"></image>
+
+    
+    <text wx:if="{{allText.isTextActive}}" bindtap="{{allText.isTextActive?'focusInput':null}}" bindtouchstart="{{allText.isTextActive?'textMoveStart':null}}" bindtouchmove="{{allText.isTextActive?'textMove':null}}" class="active-text" style="left:{{allText.textL}}px;top:{{allText.textT}}px;font-size:{{allText.fontSize}}px;color:{{allText.fontColor}};font-style:{{allText.fontStyle}};font-weight:{{allText.fontWeight}}">{{allText.someText}}</text> 
+    <!-- input组件使用绝对定位隐藏在界面之外（left:-9999px）。在input组件上绑定input事件，将text组件的内容与用户输入绑定。 -->
+    <input focus="{{inputFocus}}"confirm-type="done" bindinput="inputText" style="position:absolute;left:-9999px;"></input>
+  
+  <image class="image-edittextbotton" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/editTextImg/editTextBotton1.png" bindtap="toEdit"></image>
+
+  <!-- 主页面-底部 <image src="../../image/1.svg"></image>-->
+  <!-- toolbar-bottom为底部导航栏 -->
+  <view class="toolbar-bottom">
+    <view bindtap='chooseaddText'><text class="icon-add"></text><text class="text">添加</text></view>
+      <view bindtap='chooseFontsize'><text class="icon-size"></text><text class="text">大小</text></view>
+      <view bindtap='chooseFontColor'><text class="icon-color"></text><text class="text">颜色</text></view>
+      <view bindtap='chooseFontPattern'><text class="icon-style"></text><text class="text">样式</text></view>
+  </view>
+ 
+  <!-- 选择字号—弹出栏 -->
+    <view wx:if="{{isChooseFontSize}}" class="toolbar-top toolbar-width">
+      <view class="slider-box"><slider bindchange="fontsizeSliderChange" min="8" max="26" value="14" show-value></slider></view>
+    </view>
+    <!-- 选择颜色—弹出栏 -->
+    <view wx:if="{{isChooseFontColor}}" class="toolbar-top">
+      <view class="color-box"><view wx:for="{{allColor}}" class="color-point" data-selected="{{item}}"style="background:{{item}}" bindtap='fontColorChange'></view></view>
+    </view>
+    <!-- 选择样式—弹出栏 -->
+    <view wx:if="{{isChooseFontPattern}}" class="toolbar-top toolbar-font-style">
+      <view><text>斜体 : </text><switch bindchange="fontStyleChange"/></view>
+      <view><text>加粗 : </text><switch bindchange="fontWeightChange"/></view>
+    </view>
+
+
+  <!-- 按钮1 -->
+  <view class="confirm-bar1" wx:if="{{isCroper||allText.isTextActive}}">
+    <text class="icon-cross" bindtap="{{isCroper?'cancelCrop':'cancelAddText'}}"></text>
+  </view>
+  <!-- 按钮2 -->
+  <view class="confirm-bar2" wx:if="{{isCroper||allText.isTextActive}}">
+    <text class="icon-checkmark" bindtap="{{isCroper?'competeCrop':'competeAddText'}}"></text>
+  </view>
+</view>

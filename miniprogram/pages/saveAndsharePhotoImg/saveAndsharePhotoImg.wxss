@@ -1,1 +1,53 @@
-/* miniprogram/pages/saveAndsharePhotoImg/saveAndsharePhotoImg.wxss */
+/* 2020.9.21 李永琦 */
+.card-get{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-get image{
+  width: 85%;
+  border: 3px solid #164da0;
+  margin-top: 80rpx;
+}
+
+.btns{
+  display: flex;
+}
+
+.save{
+  width: 25%;
+  margin-top: 100rpx;
+  background-color: transparent;
+  float: left;
+}
+.save:after{ 
+  border: none;
+ } 
+.saveImg{
+  width: 155rpx;
+  height: 181rpx;
+}
+
+.share{
+  width: 25%;
+  margin-top: 100rpx;
+  background-color: transparent;
+}
+.share:after{ 
+  border: none;
+ } 
+.shareImg{
+  width: 122rpx;
+  height: 185rpx;
+}
+.img-back {
+ 
+  display: flex;
+  justify-content: center;
+  margin-top: 200rpx;
+  background-color: #164da0;
+  color: #ffffff;
+}
+page{
+  background-color: #ffffff;
+}

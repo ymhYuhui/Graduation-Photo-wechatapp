@@ -1,2 +1,19 @@
 <!--miniprogram/pages/saveAndshareCardImg/saveAndshareCardImg.wxml-->
-<text>miniprogram/pages/saveAndshareCardImg/saveAndshareCardImg.wxml</text>
+<!-- 2020.9.20 王慧娟 -->
+
+<view class='card-get'>
+<image src="{{imgUrl}}" class='in-card-get'></image>
+</view>
+
+<view class="btns">
+<button class='save' bindtap='saveImg'>
+    <image class='saveImg' src='cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/saveAndshareCardImg/saveAndshareCardTapbar1.png'></image>
+ </button>
+ <button class='openSetting' open-type="openSetting" bindopensetting='handleSetting' hidden='{{openSettingBtnHidden}}'>授权</button>
+
+ <button class='share' open-type="share">
+    <image class='shareImg' src='cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/saveAndshareCardImg/saveAndshareCardTapbar2.png'></image>
+ </button>
+ </view>
+
+<button  class="img-back" bindtap="toEdit">返回首页</button>

@@ -1,2 +1,25 @@
-<!--miniprogram/pages/chooseTemplateImg/chooseTemplateImg.wxml-->
-<text>miniprogram/pages/chooseTemplateImg/chooseTemplateImg.wxml</text>
+<!-- 2020.9.21 李永琦 -->
+<!--选择校园背景 -->
+<view class="paper-container">
+  <!--选择后的预览图片-->
+  <image class="img-card" mode="widthFix" src="{{imgUrls[index]}}"></image>
+  <!--跳转按钮 -->
+  <image class="img-butn" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/choosePaperImg/chooseTemplateBotton1.png" bindtap="toEdit"></image>
+<!--选择图片组件-->
+  <view class="bottom-container">
+    <image class="img-left" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/choosePaperImg/chooseTemplateBotton2.png" bindtap="toLeft"></image>
+
+  <view class="header">
+    <swiper circular="true" current="{{currentIndex}}" duration="1000" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+          <image src="{{item}}" mode="scaleToFill" class="slide-image" bindtap="onSwipertap"/> 
+      </swiper-item>
+    </block>
+      
+    </swiper>
+  </view>
+
+    <image class="img-right" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/choosePaperImg/chooseTemplateBotton3.png" bindtap="toRight"></image>
+</view>
+</view>

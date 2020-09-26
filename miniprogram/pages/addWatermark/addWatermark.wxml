@@ -1,8 +1,9 @@
 <!-- 2020.9.21 李永琦 -->
-<view class="paper-container">
-  <image class="bg" mode="widthFix" src='{{imgUrlsFilePath}}'></image>
+<view  class="paper-container">
+  <image src='{{imgUrl}}' class="img-card" mode="widthFix"></image>
 </view>
-<view>
+
+<view class="paper-container">
   <!-- *************操作区域*************  -->
   <block wx:for="{{itemList}}" wx:key="id">
     <!-- 圆心坐标 <text style='position:absolute;top:{{item.y}}px;left:{{item.x}}px;width:2px;height:2px;background-color:yellow;z-index:500'></text> -->
@@ -23,31 +24,26 @@
 <!-- bug点：一定不要用if hidden 隐藏canvas会导致很多api调用bug -->
 <canvas class='maskCanvas' canvas-id="maskCanvas" style='width:{{canvasWidth}}px; height:{{canvasHeight}}px;'></canvas>
 
-<view class="paper-container">
- 
-  
-   <view class="fixed">
-    <button bindtap="openMask"> <image class="img-butn" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageButton.png"></image></button>
-  </view>
-  <view class="bottom-container">
 
-  <image class="take_photo" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageTapbar1.png" bindtap="chooseimgTap"></image>
-  
-  <image class="toCamera" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageTapbar2.png" bindtap="takePhoto">
-  </image>
+<view class="paper-container">
+
+<image class="img-butn" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkBotton1.png" bindtap="openMask"></image>
+<view class="bottom-container">
+<image class="img-left" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkBotton2.png" bindtap="toLeft"></image>
+  <view class="header">
+    <swiper circular="true" current="{{currentIndex}}" duration="1000" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+          <image src="{{item}}" mode="scaleToFill" class="slide-image" bindtap="onSwipertap"/> 
+      </swiper-item>
+    </block>
+      
+    </swiper>
   </view>
-  <view hidden="{{!isTakePhoto}}" class='canvasWrap'> 
-    <camera
-     class="camera"
-     frame-size="large"
-     device-position="front"
-    ></camera>
-   <!-- frame-size="large"拍照图片高清 -->
-   <view class='btn_view'>
-      <button  bindtap='record'>拍摄</button>
-      <button bindtap='disappearCamera' >关闭</button>
-    </view>
-    
-  </view>
-  
+  <image class="img-right" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkBotton3.png" bindtap="toRight"></image>
+
+
+</view>
+
+
 </view>

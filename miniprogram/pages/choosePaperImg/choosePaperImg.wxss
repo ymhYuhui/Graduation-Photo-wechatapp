@@ -1,5 +1,5 @@
 /* miniprogram/pages/choosePaperImg/choosePaperImg.wxss */
-/* 20200914，李铭鑫 */
+/*******李铭鑫   ***********/
 .paper-container {
   display: flex;
   flex-direction: column;
@@ -39,15 +39,15 @@ swiper {
 }
 .slide-image {
   width: 100%;
-  height: 350rpx;
+  height: 300rpx;
 }
 
 .header {
   width: 100%;  
   height: 100%;
   position: relative;
-  margin-left: -30rpx;
-  margin-right: 10rpx;
+  margin-top: 40rpx;
+
 }
 
 .wx-swiper-dots {
@@ -55,7 +55,7 @@ swiper {
 }
 
 .wx-swiper-dots.wx-swiper-dots-horizontal {
-  margin-bottom: -10rpx;
+  margin-bottom: 20rpx;
 }
 
 

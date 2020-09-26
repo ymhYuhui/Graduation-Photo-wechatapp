@@ -1,1 +1,56 @@
 /* miniprogram/pages/saveAndshareCardImg/saveAndshareCardImg.wxss */
+/* 2020.9.20 王慧娟 */
+.card-get{
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+}
+.card-get image{
+  width: 670rpx;
+  height: 377rpx;
+  border: 3px solid #164da0;
+}
+
+.btns{
+  display: flex;
+}
+
+.save{
+  width: 25%;
+  margin-top: 100rpx;
+  background-color: transparent;
+  float: left;
+}
+.save:after{ 
+  border: none;
+ } 
+.saveImg{
+  width: 155rpx;
+  height: 181rpx;
+}
+
+.share{
+  width: 25%;
+  margin-top: 100rpx;
+  background-color: transparent;
+}
+.share:after{ 
+  border: none;
+ } 
+.shareImg{
+  width: 122rpx;
+  height: 185rpx;
+}
+.img-back {
+  
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  margin-top: 190rpx;
+  background-color: #164da0;
+  color: #ffffff;
+}
+
+page{
+  background-color: #ffffff;
+}

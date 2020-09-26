@@ -8,178 +8,148 @@ const canvasPre = 1; // 展示的canvas占mask的百分比
 const maskCanvas = wx.createCanvasContext('maskCanvas');
 
 Page({
+  /**
+   * 页面的初始数据
+   */
   data: {
-    imgB64: '',
-    img:'',
     imgUrl:"",
-    imgData:'',
-    isTakePhoto:false,
-    currentIndex:"",
-    itemList: [],
-    imgUrlsFilePath:"",
-    x:[
-      "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_x.png",
-    ],
-    o:[
-      "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_o.png",
-    ]
-  },
+    imgUrls: [
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkMark1.png",
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkMark2.png",
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkMark3.png",
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkMark4.png",
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkMark5.png",
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkMark6.png",
+        
 
- // 生命周期函数--监听页面加载（初始化页面加载）
-  onLoad: function(options) {
-    var that = this
-    that.setData({
-      imgUrlsFilePath : options.imgUrlsFilePath,
-      currentIndex : options.currentIndex
-    })
-    items = this.data.itemList,
-    this.drawTime = 0,
-    console.log(this.data.imgUrlsFilePath)
-    console.log(this.data.currentIndex)
-    wx.getSystemInfo({
-      success: sysData => {
-        this.sysData = sysData
-        this.setData({
-          canvasWidth: this.sysData.windowWidth * canvasPre, // 如果觉得不清晰的话，可以把所有组件、宽高放大一倍
-          canvasHeight: this.sysData.windowWidth * canvasPre * hCw,
-        })
-      }
-    })
-    //云端图片加载到缓存，便于画布截图
-    wx.cloud.downloadFile({
-      fileID:this.data.imgUrlsFilePath,
-      success: res => {
-        this.setData({
-         imgUrlsFilePaths:res.tempFilePath
-     })
-     console.log(this.data.imgUrlsFilePaths)
-     },
-     fail: err => { 
-     }
-    })
+      ],
+      currentIndex: 0, // 页面swiper的current索引
+      
+      flag: true,
+      x:[
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_x.png",
+      ],
+      o:[
+        "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_o.png",
+      ]
     
- 
-    
-    
-     
   },
-
-//抠图方法
-  koutu: function () {
-    var imgB64 = this.data.imgB64
-    if (this.data.imgB64) {
-      this.setData({ishow: true});
-      this.getToken()
-      this.getResult() 
-      console.log("koutu is true")
-
-    }else{
-      console.log("koutu is false")
-    }
-  },
-//选择人像图片
-  chooseimgTap: function () {
-    let that = this
-    wx.chooseImage({            
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        const tempFilePaths = res.tempFilePaths[0];
-        var imgB64 = wx.getFileSystemManager().readFileSync(tempFilePaths, "base64")
+//初始化页面数据加载
+ /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
         that.setData({
-          img: tempFilePaths,
-          imgB64: imgB64
-        });
-        that.koutu();
-         console.log("chooseimgTap success")
-      },  
-    })
-    console.log("start koutu")
-
-  },
- 
-
-  //获取百度AI的秘钥
-  getToken:function() {
-    let that = this
-    wx.request({
-      url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=LAYLGxsdn8LAmG6eC22QAOD7&client_secret=o6fhuP0GWQGTqc4YMEnqb0Di6L14tOGH',
-      success(res) {
-        if (res.data)
-        {
-            wx.setStorageSync('key1', res.data.access_token)
-        }
-      }
-    })
-  },
-  //调用百度API，百度AI抠图后结果
-  getResult: function () {
-    let that = this
-    wx.showLoading({
-      title: '处理中。。。',
-    })
-    wx.request({
-      url: 'https://aip.baidubce.com/rest/2.0/image-classify/v1/body_seg',
-      method: "post",
-      data: {
-        access_token: wx.getStorageSync('key1'),
-        image: that.data.imgB64,
-        type: 'foreground'
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success(res) {
-        if (res.data.person_num) {
-          var imgData = res.data.foreground
-          that.setData({ 
-            imgData: res.data.foreground,
-             })
-          wx.hideLoading()
-          that.savePic(imgData)
-        }
-        else
-        {
-          wx.showToast({
-            title: '处理失败，请重试',
+          imgUrl: options.imgUrl,
+        })
+      console.log(that.data.imgUrl)
+      wx.getSystemInfo({
+        success: sysData => {
+          this.sysData = sysData
+          this.setData({
+            canvasWidth: this.sysData.windowWidth * canvasPre, // 如果觉得不清晰的话，可以把所有组件、宽高放大一倍
+            canvasHeight: this.sysData.windowWidth * canvasPre * hCw,
           })
         }
-      }
-    })
+      })
   },
-//将抠完的图片保存至本地
-  savePic: function (imgSrc){
-    let that = this
-    var save = wx.getFileSystemManager()
-    var number = new Date().getTime()
-    var filePath = wx.env.USER_DATA_PATH +'/'+ number + '.png'
-    save.writeFile({
-      filePath: filePath,
-      data: imgSrc,
-      encoding: 'base64',
+
+  toLeft: function(e) {
+    console.log(this.data.flag)
+    if (!this.data.flag) { // 如果动画还未完成，不执行
+      return
+    } else {
+      // 修改按钮切换不可用状态
+      this.setData({
+        flag: false
+      })
+      var index = this.data.index
+      if (index > 0) {
+        this.setData({
+          currentIndex: index - 1,
+          
+        })
+      } else {
+        this.setData({
+          currentIndex: 5
+        })
+        
+      }
+     
+    }
+  },
+  toRight: function(e) {
+    console.log(this.data.flag)
+    if (!this.data.flag) {
+      // 如果动画还未完成，不执行
+      
+      return
+    } else {
+      // 修改按钮切换不可用状态
+      this.setData({
+        flag: false
+        
+      })
+      console.log("111")
+      var index = this.data.index
+      if (index >= 5) {
+        this.setData({
+          currentIndex: 0
+        })
+      } else {
+        this.setData({
+          currentIndex: index + 1
+        })
+      }
+    }  
+      
+  },
+
+  changeIndex: function(e) { // 切换过程绑定
+    this.setData({
+      index: e.detail.current
+    })
+    
+  },
+
+  changeFinish: function(e) { // 动画完全完成
+    // 修改按钮切换可用状态
+    this.setData({
+      flag: true
+    })
+    console.log(this.data.currentIndex)
+    wx.cloud.downloadFile({
+      fileID: this.data.imgUrls[this.data.currentIndex],
       success: res => {
-            wx.showToast({
-              title: '保存成功',
-            })
-            that.setData({
-              imgUrl: filePath,
-            
-               })
-                 
-                
-               this.setDropItem({url:this.data.imgUrl});
-               console.log(this.data.imgUrl)
-               this.synthesis()
-                
-   
-          },
-          fail: function (err) {
-          console.log(err)
+         this.setData({
+          imgUrlsFilePath:res.tempFilePath
+      })
+      console.log(this.data.imgUrlsFilePath)
+      
+      },
+      fail: err => {
+       
       }
+     
+    })
+    
+  },
+
+  toEdit: function() {
+    this.synthesis()
+    wx.navigateTo({
+      url: '../saveAndsharePhotoImg/saveAndsharePhotoImg?imgUrl='+this.data.canvasTemImg
     })
   },
-//初始人像的信息
+
+  onSwipertap: function(e) {
+    console.log(e.detail.current)
+    console.log (this.data.currentIndex)
+    this.setDropItem({url:this.data.imgUrlsFilePath})
+    
+  },
+
   setDropItem(imgData) {
     let data = {}
     wx.getImageInfo({
@@ -190,7 +160,7 @@ Page({
         data.height = res.height; //高度
         data.image = imgData.url; //地址
         data.id = ++itemId; //id
-        data.top = 54; //top定位
+        data.top =54; //top定位
         data.left = 37; //left定位
         //圆心坐标
         data.x = data.left + data.width / 2;
@@ -209,7 +179,6 @@ Page({
     })
   },
 
-//人像点击事件触发
   WraptouchStart: function(e) {
     for (let i = 0; i < items.length; i++) {
       items[i].active = false;
@@ -343,7 +312,6 @@ Page({
     return angle;
   },
 
-
   deleteItem: function(e) {
     let newList = [];
     for (let i = 0; i < items.length; i++) {
@@ -359,9 +327,6 @@ Page({
       itemList: items
     })
   },
-
-  
-  
 
   openMask () {
    
@@ -382,11 +347,15 @@ Page({
         
       }, this)
     )
-  },
-// 合成图片
-  synthesis() { 
-    this.drawTime = this.drawTime + 1
+   
     
+    
+  },
+
+  synthesis() { // 合成图片
+    
+    this.drawTime = this.drawTime + 1
+   
     maskCanvas.save();
     maskCanvas.beginPath();
     //一张白图  可以不画
@@ -396,8 +365,8 @@ Page({
     maskCanvas.stroke();
     
     //画背景 hCw 为 1.62 背景图的高宽比
-    maskCanvas.drawImage(this.data.imgUrlsFilePaths, 0, 0, this.sysData.windowWidth, this.data.canvasHeight);
-    console.log(this.data.imgUrlsFilePaths)
+    maskCanvas.drawImage(this.data.imgUrl, 0, 0, this.sysData.windowWidth, this.data.canvasHeight);
+    console.log(this.data.imgUrl)
     //画组件
     const num = 1,
       prop = 1;
@@ -417,7 +386,6 @@ Page({
     })
    
     maskCanvas.draw(  
-      
       wx.canvasToTempFilePath({
         canvasId: 'maskCanvas',
         
@@ -469,53 +437,5 @@ Page({
       }
     })
   },
-
-  takePhoto(){	
-    this.setData({
-      isTakePhoto:true
-    })
-  },
-
-  disappearCamera(){
-    this.setData({
-      isTakePhoto:false
-    })
-  },
-
-  record(){
-    this.data.cameraContext = wx.createCameraContext()
-    this.data.cameraContext.takePhoto({
-      quality:"high", //高质量的图片
-      success: res => {
-        //res.tempImagePath照片文件在手机内的的临时路径
-        let tempImagePath = res.tempImagePath
-        wx.saveFile({
-          tempFilePath: tempImagePath,
-          success: function (res) {
-            //返回保存时的临时路径 res.savedFilePath
-            const savedFilePath = res.savedFilePath
-            // 保存到本地相册
-            wx.saveImageToPhotosAlbum({
-              filePath: savedFilePath,
-            })
-            
-          },
-          //保存失败回调（比如内存不足）
-          fail: console.log
-        })
-      }
-    })
-    this.setData({
-      isTakePhoto:false
-    })
-  },
-
-
-   //跳转
-  toEdit: function(_opotions) {
-    this.synthesis()
-    wx.navigateTo({
-      url: '../addWatermark/addWatermark?imgUrl='+this.data.canvasTemImg
-    })
-  },
+//详细注释见chooseTemplateImg和addWatermark页面
 })

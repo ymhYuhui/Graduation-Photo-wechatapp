@@ -1,14 +1,17 @@
 {
-  "pages": [
+  "pages": [ 
     "pages/animationLoadingImg/animationLoadingImg",
-    "pages/capitalPageImg/capitalPageImg",
     "pages/choosePaperImg/choosePaperImg",
     "pages/chooseTemplateImg/chooseTemplateImg",
+    "pages/uploadImageImg/uploadImageImg",
+    "pages/capitalPageImg/capitalPageImg",
     "pages/editTextImg/editTextImg",
     "pages/myInformationImg/myInformationImg",
     "pages/saveAndshareCardImg/saveAndshareCardImg",
-    "pages/saveAndsharePhotoImg/saveAndsharePhotoImg",
-    "pages/uploadImageImg/uploadImageImg"
+    "pages/saveAndsharePhotoImg/saveAndsharePhotoImg",  
+    "pages/addWatermark/addWatermark",
+   "pages/logs/logs"
+   
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
