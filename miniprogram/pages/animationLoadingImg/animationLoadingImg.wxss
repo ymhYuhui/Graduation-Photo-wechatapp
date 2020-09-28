@@ -3,7 +3,12 @@
 canvas {
   margin: auto;
 }
-
+.notice{
+  display: flex;
+  justify-content: center;
+  margin-top: 50rpx;
+  font-size: 25rpx;
+}
 .word {
   display: flex;
   justify-content: center;
@@ -19,7 +24,8 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  vertical-align: bottom;
+  position: fixed;
+  bottom: 0;
 }
 
 .cloud image {
@@ -28,32 +34,10 @@ canvas {
 }
 
 .photo {
-  margin-top: 200rpx;
-}
-
-.line {
-  width: 70%;
-  height: 23%;
-  position: fixed;
-  top: 10%;
-  left: 120rpx;
-  z-index: 1;
-  opacity: 1;
-  overflow: hidden;
-}
-
-.hand {
-  width: 50rpx;
-  height: 50rpx;
-  z-index: 2;
-  overflow: hidden;
-  position: fixed;
-  top: 35%;
-  left: 80rpx;
-  font-size: 32rpx;
-  border-radius: 10rpx;
+  margin-top: 50rpx;
 }
 
 page {
   background-color: #fff;
 }
+

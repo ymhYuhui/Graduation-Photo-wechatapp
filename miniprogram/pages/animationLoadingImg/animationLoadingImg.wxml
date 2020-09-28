@@ -1,7 +1,10 @@
 <!-- 2020.8.30 王慧娟 -->
+<!-- 文字提示 -->
+<text class="notice">↓↓↓手指在空白区域滑动↓↓↓</text>
 <!-- 刮刮出的校徽路径（连接） -->
 <canvas class="photo" canvas-id="luck" style=" width: {{width}}px;height: {{height}}px;background: url('http://m.qpic.cn/psc?/V13ybyhR1jUwBG/cTSKLfDpG3rewGH76tPscUAKZlXMdMl62u5GbmPM0GcCEPW9RSWYq4biVQJ2sqEttaQJ61KRsNoKmrZbEEN.aA!!/mnull&bo=HwIfAh8CHwIDCSw!&rf=photolist&t=5') no-repeat center center"
-  bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" data-id="luck"></canvas>
+  bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" data-id="luck">
+  </canvas>
 <!-- 文字图片路径 -->
 <view class='word'>
   <image src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/animationLoadingImg/animationLoadingText.png" class='in-image'>

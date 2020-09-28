@@ -15,7 +15,7 @@ Page({
       height: that.data.height, //canvas高
       maskColor: '#FFFFFF', //遮罩的颜色
       size: 10, //清除轨迹的宽度
-      scale: 0.75, //可以理解为手动清除面积上限，范围0~1
+      scale: 0.7, //可以理解为手动清除面积上限，范围0~1
     }
     that.luck = new Luck(that, options);
   },

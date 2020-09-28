@@ -1,9 +1,9 @@
 {
   "pages": [ 
     "pages/animationLoadingImg/animationLoadingImg",
+    "pages/uploadImageImg/uploadImageImg",   
     "pages/choosePaperImg/choosePaperImg",
     "pages/chooseTemplateImg/chooseTemplateImg",
-    "pages/uploadImageImg/uploadImageImg",
     "pages/capitalPageImg/capitalPageImg",
     "pages/editTextImg/editTextImg",
     "pages/myInformationImg/myInformationImg",

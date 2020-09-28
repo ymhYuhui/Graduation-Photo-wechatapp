@@ -1,8 +1,8 @@
 /* 2020.9.21 李永琦*/
 let index = 0,
-items = [],
-flag = true,
-itemId = 1;
+  items = [],
+  flag = true,
+  itemId = 1;
 const hCw = 0.61;
 const canvasPre = 1; // 展示的canvas占mask的百分比
 const maskCanvas = wx.createCanvasContext('maskCanvas');
@@ -10,31 +10,31 @@ const maskCanvas = wx.createCanvasContext('maskCanvas');
 Page({
   data: {
     imgB64: '',
-    img:'',
-    imgUrl:"",
-    imgData:'',
-    isTakePhoto:false,
-    currentIndex:"",
+    img: '',
+    imgUrl: "",
+    imgData: '',
+    isTakePhoto: false,
+    currentIndex: "",
     itemList: [],
-    imgUrlsFilePath:"",
-    x:[
+    imgUrlsFilePath: "",
+    x: [
       "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_x.png",
     ],
-    o:[
+    o: [
       "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_o.png",
     ]
   },
 
- // 生命周期函数--监听页面加载（初始化页面加载）
+  // 生命周期函数--监听页面加载（初始化页面加载）
   onLoad: function(options) {
     var that = this
     that.setData({
-      imgUrlsFilePath : options.imgUrlsFilePath,
-      currentIndex : options.currentIndex
+      imgUrlsFilePath: options.imgUrlsFilePath,
+      currentIndex: options.currentIndex
     })
     items = this.data.itemList,
-    this.drawTime = 0,
-    console.log(this.data.imgUrlsFilePath)
+      this.drawTime = 0,
+      console.log(this.data.imgUrlsFilePath)
     console.log(this.data.currentIndex)
     wx.getSystemInfo({
       success: sysData => {
@@ -47,40 +47,41 @@ Page({
     })
     //云端图片加载到缓存，便于画布截图
     wx.cloud.downloadFile({
-      fileID:this.data.imgUrlsFilePath,
+      fileID: this.data.imgUrlsFilePath,
       success: res => {
         this.setData({
-         imgUrlsFilePaths:res.tempFilePath
-     })
-     console.log(this.data.imgUrlsFilePaths)
-     },
-     fail: err => { 
-     }
+          imgUrlsFilePaths: res.tempFilePath
+        })
+        console.log(this.data.imgUrlsFilePaths)
+      },
+      fail: err => {}
     })
-    
- 
-    
-    
-     
+
+
+
+
+
   },
 
-//抠图方法
-  koutu: function () {
+  //抠图方法
+  koutu: function() {
     var imgB64 = this.data.imgB64
     if (this.data.imgB64) {
-      this.setData({ishow: true});
+      this.setData({
+        ishow: true
+      });
       this.getToken()
-      this.getResult() 
+      this.getResult()
       console.log("koutu is true")
 
-    }else{
+    } else {
       console.log("koutu is false")
     }
   },
-//选择人像图片
-  chooseimgTap: function () {
+  //选择人像图片
+  chooseimgTap: function() {
     let that = this
-    wx.chooseImage({            
+    wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
@@ -92,29 +93,28 @@ Page({
           imgB64: imgB64
         });
         that.koutu();
-         console.log("chooseimgTap success")
-      },  
+        console.log("chooseimgTap success")
+      },
     })
     console.log("start koutu")
 
   },
- 
+
 
   //获取百度AI的秘钥
-  getToken:function() {
+  getToken: function() {
     let that = this
     wx.request({
       url: 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=LAYLGxsdn8LAmG6eC22QAOD7&client_secret=o6fhuP0GWQGTqc4YMEnqb0Di6L14tOGH',
       success(res) {
-        if (res.data)
-        {
-            wx.setStorageSync('key1', res.data.access_token)
+        if (res.data) {
+          wx.setStorageSync('key1', res.data.access_token)
         }
       }
     })
   },
   //调用百度API，百度AI抠图后结果
-  getResult: function () {
+  getResult: function() {
     let that = this
     wx.showLoading({
       title: '处理中。。。',
@@ -133,14 +133,12 @@ Page({
       success(res) {
         if (res.data.person_num) {
           var imgData = res.data.foreground
-          that.setData({ 
+          that.setData({
             imgData: res.data.foreground,
-             })
+          })
           wx.hideLoading()
           that.savePic(imgData)
-        }
-        else
-        {
+        } else {
           wx.showToast({
             title: '处理失败，请重试',
           })
@@ -148,42 +146,44 @@ Page({
       }
     })
   },
-//将抠完的图片保存至本地
-  savePic: function (imgSrc){
+  //将抠完的图片保存至本地
+  savePic: function(imgSrc) {
     let that = this
     var save = wx.getFileSystemManager()
     var number = new Date().getTime()
-    var filePath = wx.env.USER_DATA_PATH +'/'+ number + '.png'
+    var filePath = wx.env.USER_DATA_PATH + '/' + number + '.png'
     save.writeFile({
       filePath: filePath,
       data: imgSrc,
       encoding: 'base64',
       success: res => {
-            wx.showToast({
-              title: '保存成功',
-            })
-            that.setData({
-              imgUrl: filePath,
-            
-               })
-                 
-                
-               this.setDropItem({url:this.data.imgUrl});
-               console.log(this.data.imgUrl)
-               this.synthesis()
-                
-   
-          },
-          fail: function (err) {
-          console.log(err)
+        wx.showToast({
+          title: '保存成功',
+        })
+        that.setData({
+          imgUrl: filePath,
+
+        })
+
+
+        this.setDropItem({
+          url: this.data.imgUrl
+        });
+        console.log(this.data.imgUrl)
+        this.synthesis()
+
+
+      },
+      fail: function(err) {
+        console.log(err)
       }
     })
   },
-//初始人像的信息
+  //初始人像的信息
   setDropItem(imgData) {
     let data = {}
     wx.getImageInfo({
-      src:imgData.url,
+      src: imgData.url,
       success: res => {
         // 初始化数据
         data.width = res.width; //宽度
@@ -199,17 +199,17 @@ Page({
         data.oScale = 1; //方向缩放
         data.rotate = 1; //旋转角度
         data.active = false; //选中状态
-      
+
         items[items.length] = data;
         this.setData({
           itemList: items
         })
-       
+
       }
     })
   },
 
-//人像点击事件触发
+  //人像点击事件触发
   WraptouchStart: function(e) {
     for (let i = 0; i < items.length; i++) {
       items[i].active = false;
@@ -225,7 +225,7 @@ Page({
     items[index].lx = e.touches[0].clientX;
     items[index].ly = e.touches[0].clientY;
 
-   
+
   },
 
   WraptouchMove(e) {
@@ -253,7 +253,7 @@ Page({
   },
 
   WraptouchEnd() {
-   this.synthesis()
+    this.synthesis()
   },
 
   oTouchStart(e) {
@@ -360,17 +360,17 @@ Page({
     })
   },
 
-  
-  
 
-  openMask () {
-   
-     this.synthesis()
-     maskCanvas.draw(  
-      console.log("11111111"),
+
+
+  openMask() {
+
+    this.synthesis()
+    maskCanvas.draw(
+
       wx.canvasToTempFilePath({
         canvasId: 'maskCanvas',
-        
+
         success: res => {
           console.log('draw success')
           console.log(res.tempFilePath)
@@ -379,14 +379,14 @@ Page({
           })
           this.toEdit()
         }
-        
+
       }, this)
     )
   },
-// 合成图片
-  synthesis() { 
+  // 合成图片
+  synthesis() {
     this.drawTime = this.drawTime + 1
-    
+
     maskCanvas.save();
     maskCanvas.beginPath();
     //一张白图  可以不画
@@ -394,33 +394,33 @@ Page({
     maskCanvas.fillRect(0, 0, this.sysData.windowWidth, this.data.canvasHeight)
     maskCanvas.closePath();
     maskCanvas.stroke();
-    
+
     //画背景 hCw 为 1.62 背景图的高宽比
     maskCanvas.drawImage(this.data.imgUrlsFilePaths, 0, 0, this.sysData.windowWidth, this.data.canvasHeight);
     console.log(this.data.imgUrlsFilePaths)
     //画组件
     const num = 1,
       prop = 1;
-    items.forEach((currentValue,index) => {
-     maskCanvas.save();
-    
-    maskCanvas.translate(this.data.canvasWidth * (1 - num) / 2, 0);
-    maskCanvas.beginPath();
-    maskCanvas.translate(currentValue.x * prop, currentValue.y * prop); //圆心坐标
-    maskCanvas.rotate(currentValue.angle * Math.PI / 180);
-    maskCanvas.translate(-(currentValue.width * currentValue.scale * prop / 2), -(currentValue.height * currentValue.scale * prop / 2)) 
-    
-     maskCanvas.drawImage(currentValue.image, 0, 0, currentValue.width * currentValue.scale * prop, currentValue.height * currentValue.scale * prop);
-     
+    items.forEach((currentValue, index) => {
+      maskCanvas.save();
+
+      maskCanvas.translate(this.data.canvasWidth * (1 - num) / 2, 0);
+      maskCanvas.beginPath();
+      maskCanvas.translate(currentValue.x * prop, currentValue.y * prop); //圆心坐标
+      maskCanvas.rotate(currentValue.angle * Math.PI / 180);
+      maskCanvas.translate(-(currentValue.width * currentValue.scale * prop / 2), -(currentValue.height * currentValue.scale * prop / 2))
+
+      maskCanvas.drawImage(currentValue.image, 0, 0, currentValue.width * currentValue.scale * prop, currentValue.height * currentValue.scale * prop);
+
       maskCanvas.restore()
-     
+
     })
-   
-    maskCanvas.draw(  
-      
+
+    maskCanvas.draw(
+
       wx.canvasToTempFilePath({
         canvasId: 'maskCanvas',
-        
+
         success: res => {
           console.log('draw success')
           console.log(res.tempFilePath)
@@ -470,35 +470,35 @@ Page({
     })
   },
 
-  takePhoto(){	
+  takePhoto() {
     this.setData({
-      isTakePhoto:true
+      isTakePhoto: true
     })
   },
 
-  disappearCamera(){
+  disappearCamera() {
     this.setData({
-      isTakePhoto:false
+      isTakePhoto: false
     })
   },
 
-  record(){
+  record() {
     this.data.cameraContext = wx.createCameraContext()
     this.data.cameraContext.takePhoto({
-      quality:"high", //高质量的图片
+      quality: "high", //高质量的图片
       success: res => {
         //res.tempImagePath照片文件在手机内的的临时路径
         let tempImagePath = res.tempImagePath
         wx.saveFile({
           tempFilePath: tempImagePath,
-          success: function (res) {
+          success: function(res) {
             //返回保存时的临时路径 res.savedFilePath
             const savedFilePath = res.savedFilePath
             // 保存到本地相册
             wx.saveImageToPhotosAlbum({
               filePath: savedFilePath,
             })
-            
+
           },
           //保存失败回调（比如内存不足）
           fail: console.log
@@ -506,16 +506,16 @@ Page({
       }
     })
     this.setData({
-      isTakePhoto:false
+      isTakePhoto: false
     })
   },
 
 
-   //跳转
+  //跳转
   toEdit: function(_opotions) {
     this.synthesis()
     wx.navigateTo({
-      url: '../addWatermark/addWatermark?imgUrl='+this.data.canvasTemImg
+      url: '../addWatermark/addWatermark?imgUrl=' + this.data.canvasTemImg
     })
   },
 })

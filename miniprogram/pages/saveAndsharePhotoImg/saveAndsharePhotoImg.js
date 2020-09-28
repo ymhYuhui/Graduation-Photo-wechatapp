@@ -42,15 +42,15 @@ Page({
 
     saveImgToLocal: function (e) {
       let that = this;
-   
       let imgSrc = that.data.imgUrl;
-      wx.downloadFile({
-        url: imgSrc,
-        success: function (res) {
-          console.log(res);
+      // wx.downloadFile({
+      //   url: imgSrc,
+      //   success: function (res) {
+      //     console.log(res);
           //图片保存到本地
           wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
+           // filePath: res.tempFilePath,
+            filePath: imgSrc,
             success: function (data) {
               wx.showToast({
                 title: '保存成功',
@@ -59,8 +59,8 @@ Page({
               })
             },
           })
-        }
-      })
+      //   }
+      // })
   
     },
   

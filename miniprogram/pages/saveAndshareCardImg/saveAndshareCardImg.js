@@ -39,17 +39,18 @@ Page({
       })
   
     },
+
     saveImgToLocal: function (e) {
-      let that = this;
-   
+      let that = this;  
       let imgSrc = that.data.imgUrl;
-      wx.downloadFile({
-        url: imgSrc,
-        success: function (res) {
-          console.log(res);
-          //图片保存到本地
+      // wx.downloadFile({
+      //   url: imgSrc,
+      //   success: function (res) {
+      //     console.log(res);
+      //     //图片保存到本地
           wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
+            //filePath: res.tempFilePath,
+            filePath: imgSrc,
             success: function (data) {
               wx.showToast({
                 title: '保存成功',
@@ -58,8 +59,8 @@ Page({
               })
             },
           })
-        }
-      })
+      //   }
+      // })
   
     },
   
@@ -109,20 +110,20 @@ Page({
       // 对用户的设置进行判断，如果没有授权，即使用户返回到保存页面，显示的也是“去授权”按钮；同意授权之后才显示保存按钮
   
       if (!e.detail.authSetting['scope.writePhotosAlbum']) {
-        // wx.showModal({
-        //   title: '警告',
-        //   content: '若不打开授权，则无法将图片保存在相册中！',
-        //   showCancel: false
-        // })
+        wx.showModal({
+          title: '警告',
+          content: '若不打开授权，则无法将图片保存在相册中！',
+          showCancel: false
+        })
         that.setData({
           openSettingBtnHidden: false
         })
       } else {
-        // wx.showModal({
-        //   title: '提示',
-        //   content: '您已授权，赶紧将图片保存在相册中吧！',
-        //   showCancel: false
-        // })
+        wx.showModal({
+          title: '提示',
+          content: '您已授权，赶紧将图片保存在相册中吧！',
+          showCancel: false
+        })
         that.setData({
           openSettingBtnHidden: true
         })
