@@ -22,7 +22,8 @@
 </view>
 
 <!-- bug点：一定不要用if hidden 隐藏canvas会导致很多api调用bug -->
-<canvas class='maskCanvas' canvas-id="maskCanvas" style='width:{{canvasWidth}}px; height:{{canvasHeight}}px;'></canvas>
+<canvas class='maskCanvas'
+ canvas-id="maskCanvas" style='width:{{canvasWidth}}px; height:{{canvasHeight}}px;'></canvas>
 
 
 <view class="paper-container">
@@ -31,7 +32,8 @@
 <view class="bottom-container">
 <image class="img-left" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkBotton2.png" bindtap="toLeft"></image>
   <view class="header">
-    <swiper circular="true" current="{{currentIndex}}" duration="1000" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6">
+    <swiper circular="true" current="{{currentIndex}}" duration="1000" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6"
+    >
     <block wx:for="{{imgUrls}}">
       <swiper-item>
           <image src="{{item}}" mode="scaleToFill" class="slide-image" bindtap="onSwipertap"/> 

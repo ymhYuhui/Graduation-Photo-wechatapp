@@ -15,6 +15,7 @@ Page({
     imgData: '',
     isTakePhoto: false,
     currentIndex: "",
+    isEdit: false,
     itemList: [],
     imgUrlsFilePath: "",
     x: [
@@ -30,12 +31,12 @@ Page({
     var that = this
     that.setData({
       imgUrlsFilePath: options.imgUrlsFilePath,
-      currentIndex: options.currentIndex
+      index: options.index
     })
     items = this.data.itemList,
       this.drawTime = 0,
       console.log(this.data.imgUrlsFilePath)
-    console.log(this.data.currentIndex)
+    console.log(this.data.index)
     wx.getSystemInfo({
       success: sysData => {
         this.sysData = sysData
@@ -66,7 +67,7 @@ Page({
   //抠图方法
   koutu: function() {
     var imgB64 = this.data.imgB64
-    if (this.data.imgB64) {
+    if (imgB64) {
       this.setData({
         ishow: true
       });
@@ -171,6 +172,9 @@ Page({
         });
         console.log(this.data.imgUrl)
         this.synthesis()
+        this.setData({
+          isEdit:false
+        })
 
 
       },
@@ -186,8 +190,8 @@ Page({
       src: imgData.url,
       success: res => {
         // 初始化数据
-        data.width = res.width; //宽度
-        data.height = res.height; //高度
+        data.width = res.width/4; //宽度
+        data.height = res.height/4; //高度
         data.image = imgData.url; //地址
         data.id = ++itemId; //id
         data.top = 54; //top定位
@@ -254,6 +258,9 @@ Page({
 
   WraptouchEnd() {
     this.synthesis()
+    this.setData({
+      isEdit: false
+    })
   },
 
   oTouchStart(e) {
@@ -366,22 +373,12 @@ Page({
   openMask() {
 
     this.synthesis()
-    maskCanvas.draw(
-
-      wx.canvasToTempFilePath({
-        canvasId: 'maskCanvas',
-
-        success: res => {
-          console.log('draw success')
-          console.log(res.tempFilePath)
-          this.setData({
-            canvasTemImg: res.tempFilePath
-          })
-          this.toEdit()
-        }
-
-      }, this)
-    )
+    
+    this.setData({
+      isEdit : true
+    })
+      
+    
   },
   // 合成图片
   synthesis() {
@@ -427,6 +424,10 @@ Page({
           this.setData({
             canvasTemImg: res.tempFilePath
           })
+          if(this.data.isEdit == true)
+          {
+            this.toEdit()
+          }
         }
       }, this)
     )
@@ -438,84 +439,42 @@ Page({
     })
   },
 
-  saveImg: function() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.canvasTemImg,
-      success: res => {
-        wx.showToast({
-          title: '保存成功',
-          icon: "success"
-        })
-      },
-      fail: res => {
-        console.log(res)
-        wx.openSetting({
-          success: settingdata => {
-            console.log(settingdata)
-            if (settingdata.authSetting['scope.writePhotosAlbum']) {
-              console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
-            } else {
-              console.log('获取权限失败，给出不给权限就无法正常使用的提示')
-            }
-          },
-          fail: error => {
-            console.log(error)
-          }
-        })
-        wx.showModal({
-          title: '提示',
-          content: '保存失败，请确保相册权限已打开',
-        })
-      }
-    })
-  },
+  
+  
 
   takePhoto() {
-    this.setData({
-      isTakePhoto: true
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: [ 'camera'],
+      success(res) {
+        const tempFilePaths = res.tempFilePaths[0];
+        var imgB64 = wx.getFileSystemManager().readFileSync(tempFilePaths, "base64")
+        that.setData({
+          img: tempFilePaths,
+          imgB64: imgB64
+        });
+        that.koutu();
+        console.log("chooseimgTap success")
+      },
     })
+    console.log("start koutu")
   },
 
-  disappearCamera() {
-    this.setData({
-      isTakePhoto: false
-    })
-  },
+  
 
-  record() {
-    this.data.cameraContext = wx.createCameraContext()
-    this.data.cameraContext.takePhoto({
-      quality: "high", //高质量的图片
-      success: res => {
-        //res.tempImagePath照片文件在手机内的的临时路径
-        let tempImagePath = res.tempImagePath
-        wx.saveFile({
-          tempFilePath: tempImagePath,
-          success: function(res) {
-            //返回保存时的临时路径 res.savedFilePath
-            const savedFilePath = res.savedFilePath
-            // 保存到本地相册
-            wx.saveImageToPhotosAlbum({
-              filePath: savedFilePath,
-            })
+  
 
-          },
-          //保存失败回调（比如内存不足）
-          fail: console.log
-        })
-      }
-    })
-    this.setData({
-      isTakePhoto: false
-    })
-  },
 
 
   //跳转
   toEdit: function(_opotions) {
-    this.synthesis()
     wx.navigateTo({
       url: '../addWatermark/addWatermark?imgUrl=' + this.data.canvasTemImg
+    })
+    this.setData({
+      isEdit:false
     })
   },
 })

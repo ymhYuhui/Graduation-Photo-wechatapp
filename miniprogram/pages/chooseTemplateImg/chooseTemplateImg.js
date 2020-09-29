@@ -30,167 +30,167 @@ Page({
   },
 
   onLoad: function (options) {
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage.png',
-        success: res => {
-           this.setData({
-            imgUrlsFilePath0:res.tempFilePath
-        })
-        console.log(this.data.imgUrlsFilePath0)
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage1.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath1:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage2.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath2:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage3.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath3:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage4.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath4:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage5.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath5:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage6.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath6:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage7.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath7:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage8.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath8:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage9.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath9:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage10.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath10:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage11.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath11:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage12.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath12:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage13.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath13:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage14.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath14:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
-      wx.cloud.downloadFile({
-        fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage15.png',
-        success: res => {
-          this.setData({
-            imgUrlsFilePath15:res.tempFilePath
-          })
-        },
-        fail: err => { 
-        }
-      })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage.png',
+      //   success: res => {
+      //      this.setData({
+      //       imgUrlsFilePath0:res.tempFilePath
+      //   })
+      //   console.log(this.data.imgUrlsFilePath0)
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage1.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath1:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage2.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath2:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage3.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath3:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage4.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath4:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage5.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath5:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage6.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath6:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage7.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath7:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage8.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath8:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage9.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath9:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage10.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath10:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage11.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath11:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage12.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath12:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage13.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath13:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage14.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath14:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
+      // wx.cloud.downloadFile({
+      //   fileID: 'cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/chooseTemplateImg/chooseTemplateShowImage15.png',
+      //   success: res => {
+      //     this.setData({
+      //       imgUrlsFilePath15:res.tempFilePath
+      //     })
+      //   },
+      //   fail: err => { 
+      //   }
+      // })
   },
 
   toLeft: function(e) {
@@ -242,6 +242,7 @@ Page({
     this.setData({
       index: e.detail.current
     })
+    console.log(this.data.index)
   },
 
   changeFinish: function(e) { // 动画完全完成
@@ -255,7 +256,7 @@ Page({
 
   toEdit: function(opotions) {
     wx.navigateTo({
-      url: '../uploadImageImg/uploadImageImg?imgUrlsFilePath='+this.data.imgUrls[this.data.currentIndex] +'&currentIndex=' + this.data.currentIndex
+      url: '../uploadImageImg/uploadImageImg?imgUrlsFilePath='+this.data.imgUrls[this.data.index] +'&index=' + this.data.index
     })
   },
   

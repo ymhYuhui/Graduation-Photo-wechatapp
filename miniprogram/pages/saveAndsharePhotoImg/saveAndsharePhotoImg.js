@@ -10,7 +10,7 @@ Page({
         that.setData({
           imgUrl: options.imgUrl,
         })
-      console.log(this.data.imgUrl)
+      console.log(that.data.imgUrl)
   },
   // 保存图片
     saveImg:function(e){

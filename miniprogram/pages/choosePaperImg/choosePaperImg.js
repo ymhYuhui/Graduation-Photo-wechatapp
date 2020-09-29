@@ -73,7 +73,7 @@ Page({
   },
   toEdit: function (opotions) {
     wx.navigateTo({
-      url: '../editTextImg/editTextImg?imgUrl=' + this.data.imgUrls[this.data.currentIndex]+'&currentIndex=' + this.data.currentIndex
+      url: '../editTextImg/editTextImg?imgUrl=' + this.data.imgUrls[this.data.index]+'&currentIndex=' + this.data.currentIndex
     })
   },
 
