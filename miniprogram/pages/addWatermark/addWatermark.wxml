@@ -32,7 +32,7 @@
 <view class="bottom-container">
 <image class="img-left" mode="widthFix" src="cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/addWatermarkImg/addWatermarkBotton2.png" bindtap="toLeft"></image>
   <view class="header">
-    <swiper circular="true" current="{{currentIndex}}" duration="1000" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6"
+    <swiper circular="true" current="{{currentIndex}}" duration="500" bindchange="changeIndex" bindanimationfinish="changeFinish" indicator-dots="true" indicator-active-color="#164da0" indicator-color="#b9c5d6"
     >
     <block wx:for="{{imgUrls}}">
       <swiper-item>

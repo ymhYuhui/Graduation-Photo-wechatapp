@@ -53,6 +53,21 @@ Page({
         this.setData({
           imgUrlsFilePaths: res.tempFilePath
         })
+        maskCanvas.drawImage(this.data.imgUrlsFilePaths, 0, 0, this.sysData.windowWidth, this.data.canvasHeight);
+        maskCanvas.draw(
+
+          wx.canvasToTempFilePath({
+            canvasId: 'maskCanvas',
+    
+            success: res => {
+              console.log('draw success')
+              console.log(res.tempFilePath)
+              this.setData({
+                canvasTemImg: res.tempFilePath
+              })
+            }
+          }, this)
+        )
         console.log(this.data.imgUrlsFilePaths)
       },
       fail: err => {}

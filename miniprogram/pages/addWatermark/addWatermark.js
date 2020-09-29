@@ -33,7 +33,6 @@ Page({
     o: [
       "cloud://bigcgraduation-20ikc.6269-bigcgraduation-20ikc-1302878587/images/uploadImageImg/uploadImageImg_o.png",
     ],
-    isSwiperTouch : false
 
   },
   //初始化页面数据加载

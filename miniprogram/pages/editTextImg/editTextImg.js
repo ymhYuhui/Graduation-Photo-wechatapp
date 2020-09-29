@@ -56,6 +56,7 @@ Page({
           tempImageFilePath: res.tempFilePath,
         })
         loadImgOnImage(self)
+        
         console.log(self.data.tempImageFilePath)
       },
       fail: function (res) {
@@ -126,8 +127,8 @@ Page({
       fontSize: this.fontSize ? this.fontSize:14,
       fontStyle: 'normal',
       fontWeight: 'normal',
-      textL: 24,
-      textT: 38,
+      textL: 140,
+      textT: 125,
       isTextActive: true,
     }
     
@@ -261,9 +262,15 @@ Page({
   
   toEdit: function(_opotions) {
    var self = this
+   if(self.data.isCombine == true){
     wx.navigateTo({
       url: '../saveAndshareCardImg/saveAndshareCardImg?imgUrl='+self.data.tempImageSrc
     })
+  }else{
+    wx.navigateTo({
+      url: '../saveAndshareCardImg/saveAndshareCardImg?imgUrl='+self.data.tempImageFilePath
+    })
+  }
   },
   
 })

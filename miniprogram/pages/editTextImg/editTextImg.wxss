@@ -175,10 +175,10 @@ background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www
 }
 .confirm-bar1{
   position:absolute;
-  top:20rpx;
+  top:350rpx;
   left:40rpx;
-  width:60rpx;
-  height:60rpx;
+  width:100rpx;
+  height:100rpx;
   z-index: 5;
   background-color: #eee;
   opacity: 0.7;
@@ -186,10 +186,10 @@ background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www
 }
 .confirm-bar2{
   position:absolute;
-  top:20rpx;
+  top:350rpx;
   right:40rpx;
-  width:60rpx;
-  height:60rpx;
+  width:100rpx;
+  height:100rpx;
   z-index: 5;
   background-color: #eee;
   opacity: 0.7;
